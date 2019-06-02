@@ -13,8 +13,8 @@ Open the web address you have set up in your browser. There are currently three 
 
 Users:
 
-| --- | --- | --- |
 | Type | Email | Password |
+| --- | --- | --- |
 | Administrator | admissions@cloudhorizon.com | admissions |
 | Staff | staff@cloudhorizon.com | admissions |
 | Student | student@cloudhorizon.com | admissions |
