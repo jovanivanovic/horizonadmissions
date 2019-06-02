@@ -20,3 +20,7 @@ Users:
 | Student | student@cloudhorizon.com | admissions |
 
 Go to the login page and sign in with a user above.
+
+## Live Demo
+
+You can test the application by going to this address: [horizonadmissions.einu.net](http://horizonadmissions.einu.net)
