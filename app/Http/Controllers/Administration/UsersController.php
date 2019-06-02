@@ -32,9 +32,37 @@ class UsersController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password)
         ]);
 
+        $user->attachRole($role);
+
+        return redirect()->route('admin.users');
+    }
+
+    public function edit(User $user)
+    {
+        $roles = Role::all();
+
+        return view('administration.users.edit', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $role = Role::where('name', $request->role)->first();
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
+
+        $user->detachRole($user->role);
         $user->attachRole($role);
 
         return redirect()->route('admin.users');

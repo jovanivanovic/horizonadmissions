@@ -25,6 +25,12 @@ Breadcrumbs::for('admin.users.create', function ($trail) {
     $trail->push('Create User', route('admin.users.create'));
 });
 
+// Administration > Users > Edit User
+Breadcrumbs::for('admin.users.edit', function ($trail, $user) {
+    $trail->parent('admin.users');
+    $trail->push($user->full_name.': Edit', route('admin.users.edit', $user->id));
+});
+
 // Administration > Interviews
 Breadcrumbs::for('admin.interviews', function ($trail) {
     $trail->parent('admin');
