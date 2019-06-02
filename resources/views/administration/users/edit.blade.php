@@ -27,6 +27,12 @@
                     @endif
                 </div>
 
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input disabled value="{{ $user->email }}" type="email" class="form-control" id="email" >
+                </div>
+
                 <div class="form-group has-feedback {{ $errors->has('first_name') ? 'has-error' : '' }}">
                     <label for="first_name">First Name</label>
                     <input value="{{ $user->first_name }}" type="text" name="first_name" class="form-control" id="first_name" placeholder="First name">
@@ -43,16 +49,6 @@
                     @if ($errors->has('last_name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('last_name') }}</strong>
-                        </span>
-                    @endif
-                </div>
-
-                <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
-                    <label for="email">Email</label>
-                    <input value="{{ $user->email }}" type="email" name="email" class="form-control" id="email" placeholder="Email">
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
                         </span>
                     @endif
                 </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Administration;
 
+use App\Http\Requests\Administration\CreateUserFormRequest;
+use App\Http\Requests\Administration\EditUserFormRequest;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -24,7 +26,7 @@ class UsersController extends Controller
         return view('administration.users.create', ['roles' => $roles]);
     }
 
-    public function store(Request $request)
+    public function store(CreateUserFormRequest $request)
     {
         $role = Role::where('name', $request->role)->first();
 
@@ -51,14 +53,13 @@ class UsersController extends Controller
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(EditUserFormRequest $request, User $user)
     {
         $role = Role::where('name', $request->role)->first();
 
         $user->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'email' => $request->email,
             'phone' => $request->phone
         ]);
 
