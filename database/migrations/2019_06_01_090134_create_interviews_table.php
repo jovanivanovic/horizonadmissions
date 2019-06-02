@@ -20,7 +20,7 @@ class CreateInterviewsTable extends Migration
             $table->unsignedInteger('student_id')->index();
             $table->unique(['type_id', 'student_id']);
 
-            $table->dateTime('datetime')->unique();
+            $table->dateTime('datetime');
 
             $table->enum('status', ['pending', 'rejected', 'confirmed']);
 

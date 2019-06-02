@@ -13,6 +13,8 @@ class CreateInterviewFormRequest extends FormRequest
      */
     public function authorize()
     {
+        $this->request->add(['student_id' => auth()->user()->id]);
+
         return auth()->user()->hasRole('student');
     }
 
@@ -25,7 +27,8 @@ class CreateInterviewFormRequest extends FormRequest
     {
         return [
             'type_id' => 'required|unique_with:interviews,student_id',
-            'datetime' => 'required|date|unique:interviews'
+            'student_id' => 'required',
+            'datetime' => 'required|date'
         ];
     }
 }

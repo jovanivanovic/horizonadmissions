@@ -79,13 +79,15 @@ class InterviewsController extends Controller
     {
         $datetime = Carbon::instance(new \DateTime($request->datetime));
 
-        $student = auth()->user();
-        $interviews = $student->interviews();
+        if (Interview::where('datetime', '=', $datetime->format('Y-m-d H:i:s'))->where('status', '!=', 'rejected')->count() == 0) {
+            $student = auth()->user();
+            $interviews = $student->interviews();
 
-        $interview = $interviews->create([
-            'type_id' => $request->type_id,
-            'datetime' => $datetime
-        ]);
+            $interview = $interviews->create([
+                'type_id' => $request->type_id,
+                'datetime' => $datetime
+            ]);
+        }
 
         return redirect()->route('student.interviews');
     }
