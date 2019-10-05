@@ -3,6 +3,7 @@
 ## Installation instructions
 
 - Make a copy of `.env.example` and rename it to `.env`
+- Execute `php artisan key:generate` to generate an encryption key
 - Update MySQL database information in the `.env` file
 - Execute the `composer install` command to download necessary packages
 - Execute the `php artisan migrate --seed` command to create database tables and some sample data
